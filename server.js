@@ -5,6 +5,75 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles = {
+     'article-one' : {
+        title : 'Spandana Article One :)',
+        heading : 'Article One',
+        date : 'Sep 16, 2017',
+        content : `<p>
+                    This article-one is to learn JS/CSS through IMAD-Hasura taught by Tanmai:D
+                </p>
+                <p>
+                    Here is some cool stuff have not learnt before!!!
+                </p>
+                <p>
+                    Most amazing things are here ;)
+                </p>`
+    },
+     'article-two' : {
+        title : 'Spandana Article Two :)',
+        heading : 'Article One',
+        date : 'Sep 17, 2017',
+        content : `<p>
+                    This article-two is to learn JS/CSS through IMAD-Hasura taught by Tanmai:D
+                </p>
+                <p>
+                    Here is some cool stuff have not learnt before!!!
+                </p>
+                <p>
+                    Most amazing things are here ;)
+                </p>`
+    }
+};
+
+
+function createTemplate(data){
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.heading;
+    var content= data.content;
+    var commomHtmlTemplate =
+        `<html>
+        <head>
+            <title>
+                ${title}
+            </title>
+            <meta name="viewport" content="width=device-width, intial-scale=1" />
+            <link href="/ui/style.css" rel="stylesheet" /> 
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <h3>
+                   ${heading}
+                </h3>
+                <hr/>
+                <div>
+                    ${date}
+                </div>
+                <hr/>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+    `;
+return commomHtmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -17,12 +86,9 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-});
-
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+app.get('/:articleName', function (req, res) {
+    var articleName = req.param.articleName;
+    res.send(createTemplate[articleName]);
 });
 
 
