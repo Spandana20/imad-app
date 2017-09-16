@@ -40,7 +40,7 @@ var articles = {
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
-    var date = data.heading;
+    var date = data.date;
     var content= data.content;
     var commomHtmlTemplate =
         `<html>
@@ -88,7 +88,7 @@ app.get('/ui/madi.png', function (req, res) {
 
 app.get('/:articleName', function (req, res) {
     var articleName = req.param.articleName;
-    res.send(createTemplate[articleName]);
+    res.send(createTemplate(articleName));
 });
 
 
