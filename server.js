@@ -70,7 +70,7 @@ function createTemplate(data){
             </div>
         </body>
     </html>
-    `
+    `;
 return commomHtmlTemplate;
 }
 
