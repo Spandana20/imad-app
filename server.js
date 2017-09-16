@@ -22,7 +22,7 @@ var articles = {
     },
      'article-two': {
         title : 'Spandana Article Two :)',
-        heading : 'Article One',
+        heading : 'Article Two',
         date : 'Sep 17, 2017',
         content : `<p>
                     This article-two is to learn JS/CSS through IMAD-Hasura taught by Tanmai:D
