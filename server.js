@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
+/*var articles = {
      'article-one' : {
         title : 'Spandana Article One :)',
         heading : 'Article One',
@@ -34,7 +34,22 @@ var articles = {
                     Most amazing things are here ;)
                 </p>`
     }
-};
+};*/
+
+var articleOne = {
+        title : 'Spandana Article One :)',
+        heading : 'Article One',
+        date : 'Sep 16, 2017',
+        content : `<p>
+                    This article-one is to learn JS/CSS through IMAD-Hasura taught by Tanmai:D
+                </p>
+                <p>
+                    Here is some cool stuff have not learnt before!!!
+                </p>
+                <p>
+                    Most amazing things are here ;)
+                </p>`
+}
 
 
 function createTemplate (data) {
@@ -87,8 +102,8 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/:articleName', function (req, res) {
-    var articleName = req.param.articleName;
-    res.send(createTemplate(articles[articleName]));
+    //var articleName = req.param.articleName; articles[articleName]
+    res.send(createTemplate(articleOne));
 });
 
 
