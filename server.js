@@ -38,7 +38,7 @@ var articles = {
 
 
 function createTemplate(data){
-    var title = data.title;
+    //var title = data.title;
     var heading = data.heading;
     var date = data.date;
     var content= data.content;
@@ -46,7 +46,7 @@ function createTemplate(data){
         `<html>
         <head>
             <title>
-                ${title}
+               Spandana Artivle
             </title>
             <meta name="viewport" content="width=device-width, intial-scale=1" />
             <link href="/ui/style.css" rel="stylesheet" /> 
