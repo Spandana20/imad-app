@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-/*var articles = {
+var articles = {
      'article-one' : {
         title : 'Spandana Article One :)',
         heading : 'Article One',
@@ -34,7 +34,7 @@ app.use(morgan('combined'));
                     Most amazing things are here ;)
                 </p>`
     }
-};*/
+};
 
 var articleOne = {
         title : 'Spandana Article One :)',
@@ -102,8 +102,8 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/:articleName', function (req, res) {
-    //var articleName = req.param.articleName; articles[articleName]
-    res.send(createTemplate(articleOne));
+    var articleName = req.param.articleName; 
+    res.send(createTemplate(articles[articleName]));
 });
 
 
