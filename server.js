@@ -71,7 +71,7 @@ function createTemplate(data){
         </body>
     </html>
     `;
-return commomHtmlTemplate;
+    return commomHtmlTemplate;
 }
 
 app.get('/', function (req, res) {
