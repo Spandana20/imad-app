@@ -38,15 +38,15 @@ var articles = {
 
 
 function createTemplate(data){
-    //var title = data.title;
-    //var heading = data.heading;
-   // var date = data.date;
-    //var content= data.content;
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content= data.content;
     var commonHtmlTemplate =
         `<html>
         <head>
             <title>
-               Spandana Article One
+               ${title}
             </title>
             <meta name="viewport" content="width=device-width, intial-scale=1" />
             <link href="/ui/style.css" rel="stylesheet" /> 
@@ -57,23 +57,15 @@ function createTemplate(data){
                     <a href="/">Home</a>
                 </div>
                 <h3>
-                    Article One
+                   ${heading}
                 </h3>
                 <hr/>
                 <div>
-                   Sep 16, 2017
+                   ${date}
                 </div>
                 <hr/>
                 <div>
-                   <p>
-                    This article-one is to learn JS/CSS through IMAD-Hasura taught by Tanmai:D
-                </p>
-                <p>
-                    Here is some cool stuff have not learnt before!!!
-                </p>
-                <p>
-                    Most amazing things are here ;)
-                </p>
+                   ${content}
                 </div>
             </div>
         </body>
