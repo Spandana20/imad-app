@@ -39,5 +39,19 @@ button.onclick = function(){
     request.open('GET', 'http://spandanapidishetty.imad.hasura-app.io/counter',true);
     request.send(null);
 };
-
+//onclick Submit code
+var inputName = document.getElementById('name');
+var name = inputName.value;
+var submit = document.getElementById('submitButton');
+submit.onclick = function(){
+    //make request and send the name 
+    //capture the name and add it to the list
+    var names = ['name1','name2','name3'];
+    var list='';
+    for(var i = 0; i<names.length; i++){
+        list += '<li>' + names[i] + '</li>'
+    }
+    var ul = document.getElementById('nameList');
+    ul.innerHTML = list
+};
 
