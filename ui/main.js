@@ -21,7 +21,7 @@ var button = document.getElementById('counter');
 var counter = 0;
 
 button.onclick = function(){
-    //Make a request
+    //Creating a request object
     var request = new XMLHttpRequest();
 
     //Capture the request
@@ -41,17 +41,34 @@ button.onclick = function(){
 };
 //onclick Submit code
 var inputName = document.getElementById('name');
-var name = inputName.value;
-var submit = document.getElementById('submitButton');
 submit.onclick = function(){
+    //Creating a request object
+    var request = new XMLHttpRequest();
+
+    //Capture the request
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            if(request.status === 200){
+          //capture the name and add it to the list
+            var names = request.responseText;
+            names = JSON.parse(names);
+            var list='';
+            for(var i = 0; i<names.length; i++){
+                list += '<li>' + names[i] + '</li>'
+            }
+            var ul = document.getElementById('nameList');
+            ul.innerHTML = list;            
+         }
+        }
+    };
+    
+    var name = inputName.value;
+    var submit = document.getElementById('submitButton');
+
+    //Make the request
+    request.open('GET', 'http://spandanapidishetty.imad.hasura-app.io/submit-name?name=' + name,true);
+    request.send(null);
     //make request and send the name 
-    //capture the name and add it to the list
-    var names = ['name1','name2','name3'];
-    var list='';
-    for(var i = 0; i<names.length; i++){
-        list += '<li>' + names[i] + '</li>'
-    }
-    var ul = document.getElementById('nameList');
-    ul.innerHTML = list
+    
 };
 
