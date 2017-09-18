@@ -40,7 +40,8 @@ button.onclick = function(){
     request.send(null);
 };
 //onclick Submit code
-var inputName = document.getElementById('name');
+
+var submit = document.getElementById('submitButton');
 submit.onclick = function(){
     //Creating a request object
     var request = new XMLHttpRequest();
@@ -62,9 +63,8 @@ submit.onclick = function(){
         }
     };
     
+    var inputName = document.getElementById('name');
     var name = inputName.value;
-    var submit = document.getElementById('submitButton');
-
     //Make the request
     request.open('GET', 'http://spandanapidishetty.imad.hasura-app.io/submit-name?name=' + name,true);
     request.send(null);
