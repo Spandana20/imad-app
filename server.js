@@ -108,7 +108,7 @@ app.get('/submit-name/:name', function (req, res) {
 
 //if respnse  ie, name is sent as query param, extract name as::
 var nameList = [];
-app.get('/submit-name/:name', function (req, res) {
+app.get('/submit-name', function (req, res) {
     //Getting name from request parameter
     var name = req.query.name;// /submit-name?name=XXXX
     //adding name to list
