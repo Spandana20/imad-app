@@ -95,10 +95,22 @@ app.get('/counter', function (req, res) {
     res.send(counter.toString());
 });
 
-var nameList = [];
+//if respnse  ie, name is sent as part of request object, extract name as::
+/*var nameList = [];
 app.get('/submit-name/:name', function (req, res) {
     //Getting name from request parameter
     var name = req.params.name;
+    //adding name to list
+    nameList.push(name);
+    //sending name as response using JSON
+    res.send(JSON.stringify(nameList));
+});*/
+
+//if respnse  ie, name is sent as query param, extract name as::
+var nameList = [];
+app.get('/submit-name/:name', function (req, res) {
+    //Getting name from request parameter
+    var name = req.query.name;// /submit-name?name=XXXX
     //adding name to list
     nameList.push(name);
     //sending name as response using JSON
