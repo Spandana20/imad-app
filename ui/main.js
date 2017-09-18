@@ -50,7 +50,7 @@ submit.onclick = function(){
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
-          //capture the name and add it to the list
+          //capture the name coming from request as a query parameter and add it to the list
             var names = request.responseText;
             names = JSON.parse(names);
             var list='';
